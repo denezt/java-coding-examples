@@ -1,0 +1,18 @@
+# Gradle Build Files 
+.gradle
+gradlew
+gradlew.bat
+
+
+# Java Compile Files
+*.class
+
+# Metadata and Logfiles
+*.log
+
+# Backup and Temporary Files
+tmp
+Backup
+*.bkup
+
+
