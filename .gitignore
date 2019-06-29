@@ -7,6 +7,9 @@ gradlew.bat
 # Java Compile Files
 *.class
 
+# Java Generated Files
+test.json
+
 # Metadata and Logfiles
 *.log
 
