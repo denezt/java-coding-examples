@@ -12,6 +12,7 @@ test.json
 
 # Metadata and Logfiles
 *.log
+._*
 
 # Backup and Temporary Files
 tmp
