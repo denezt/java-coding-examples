@@ -1,4 +1,7 @@
-
+/*
+* Created By Richard Jackson
+* Computer Science - Thomas Edison State University
+*/
 public class BinaryTree {
 
 	Node root;
@@ -54,6 +57,7 @@ public class BinaryTree {
 			preorderTraverseTree(focusNode.rightChild);
 		}
 	}
+
 	public void preorderTraverseTree(Node focusNode) {
 		if (focusNode != null) {
 			System.out.println(focusNode);
@@ -61,6 +65,7 @@ public class BinaryTree {
 			preorderTraverseTree(focusNode.rightChild);
 		}
 	}
+
 	public void postOrderTraverseTree(Node focusNode) {
 		if (focusNode != null) {
 			preorderTraverseTree(focusNode.leftChild);
@@ -68,6 +73,7 @@ public class BinaryTree {
 			System.out.println(focusNode);
 		}
 	}
+
 	public Node findNode(int key) {
 		// Start at the top of the tree
 		Node focusNode = root;
@@ -83,8 +89,9 @@ public class BinaryTree {
 				focusNode = focusNode.rightChild;
 			}
 			// The node wasn't found
-			if (focusNode == null)
+			if (focusNode == null){
 				return null;
+			}
 		}
 		return focusNode;
 	}
@@ -112,64 +119,68 @@ public class BinaryTree {
 				focusNode = focusNode.rightChild;
 			}
 			// The node wasn't found
-			if (focusNode == null)
+			if (focusNode == null){
 				return false;
+			}
 		}
+
 		// If Node doesn't have children delete it
 		if (focusNode.leftChild == null && focusNode.rightChild == null) {
 			// If root delete it
-			if (focusNode == root)
+			if (focusNode == root){
 				root = null;
-			// If it was marked as a left child
-			// of the parent delete it in its parent
-			else if (isItALeftChild)
+			}
+				// If it was marked as a left child
+				// of the parent delete it in its parent
+				else if (isItALeftChild){
 				parent.leftChild = null;
-			// Vice versa for the right child
-			else
+			} else {
+				// Vice versa for the right child
 				parent.rightChild = null;
-		}
-		// If no right child
-		else if (focusNode.rightChild == null) {
-			if (focusNode == root)
-				root = focusNode.leftChild;
-			// If focus Node was on the left of parent
-			// move the focus Nodes left child up to the
-			// parent node
-			else if (isItALeftChild)
-				parent.leftChild = focusNode.leftChild;
-			// Vice versa for the right child
-			else
-				parent.rightChild = focusNode.leftChild;
-		}
+			}
+			// If no right child
+		} else if (focusNode.rightChild == null) {
+			if (focusNode == root){
+					root = focusNode.leftChild;
+				// If focus Node was on the left of parent
+				// move the focus Nodes left child up to the
+				// parent node
+			} else if (isItALeftChild){
+					parent.leftChild = focusNode.leftChild;
+				// Vice versa for the right child
+			} else {
+					parent.rightChild = focusNode.leftChild;
+			}
 		// If no left child
-		else if (focusNode.leftChild == null) {
-			if (focusNode == root)
+		} else if (focusNode.leftChild == null) {
+			if (focusNode == root){
 				root = focusNode.rightChild;
-			// If focus Node was on the left of parent
-			// move the focus Nodes right child up to the
-			// parent node
-			else if (isItALeftChild)
+				// If focus Node was on the left of parent
+				// move the focus Nodes right child up to the
+				// parent node
+			} else if (isItALeftChild) {
 				parent.leftChild = focusNode.rightChild;
-			// Vice versa for the left child
-			else
+				// Vice versa for the left child
+			} else {
 				parent.rightChild = focusNode.rightChild;
-		}
-		// Two children so I need to find the deleted nodes
-		// replacement
-		else {
+			}
+			// Two children so I need to find the deleted nodes
+			// replacement
+		} else {
 			Node replacement = getReplacementNode(focusNode);
 			// If the focusNode is root replace root
 			// with the replacement
-			if (focusNode == root)
+			if (focusNode == root){
 				root = replacement;
 			// If the deleted node was a left child
 			// make the replacement the left child
-			else if (isItALeftChild)
+			} else if (isItALeftChild){
 				parent.leftChild = replacement;
 			// Vice versa if it was a right child
-			else
+			} else {
 				parent.rightChild = replacement;
-			replacement.leftChild = focusNode.leftChild;
+				replacement.leftChild = focusNode.leftChild;
+			}
 		}
 		return true;
 	}
@@ -205,14 +216,20 @@ public class BinaryTree {
 		theTree.addNode(75, "Sales Manager");
 		theTree.addNode(85, "Salesman 1");
 		// Different ways to traverse binary trees
-		// theTree.inOrderTraverseTree(theTree.root);
-		// theTree.preorderTraverseTree(theTree.root);
-		// theTree.postOrderTraverseTree(theTree.root);
+		System.out.println("In Order Traversal");
+		theTree.inOrderTraverseTree(theTree.root);
+		System.out.println("====================");
+		System.out.println("PreOrder Traversal");
+		theTree.preorderTraverseTree(theTree.root);
+		System.out.println("====================");
+		System.out.println("PostOrder Traversal");
+		theTree.postOrderTraverseTree(theTree.root);
+		System.out.println("====================");
 		// Find the node with key 75
 		System.out.println("\nNode with the key 75");
 		System.out.println(theTree.findNode(75));
 		System.out.println("Remove Key 25");
-		//theTree.remove(25);
+		theTree.remove(25);
 		System.out.println(theTree.findNode(25));
 		theTree.inOrderTraverseTree(theTree.root);
 	}
