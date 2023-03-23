@@ -19,4 +19,11 @@ tmp
 Backup
 *.bkup
 
-
+# Local files
+.DS_Store
+**/.mvn/**
+mvnw
+mvnw.cmd
+example1/datahub/nb-configuration.xml
+example1/datahub/nbactions.xml
+application.properties

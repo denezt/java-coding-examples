@@ -1,0 +1,15 @@
+/app
+  /domain
+    /entities
+    /repositories
+    /services
+  /use_cases
+  /interfaces
+    /controllers
+    /gateways
+    /presenters
+    /views
+  /infrastructure
+    /data_sources
+    /adapters
+
